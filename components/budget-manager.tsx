@@ -130,82 +130,83 @@ export function BudgetManager({ onBudgetUpdate }: BudgetManagerProps) {
           <span className="sm:hidden">Budgets</span>
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-[95vw] max-w-[600px] max-h-[90vh] overflow-hidden">
-        <div className="select-none">
-          <DialogHeader>
-            <DialogTitle className="text-lg sm:text-xl">
-              Monthly Budget Settings
-            </DialogTitle>
-            <DialogDescription className="text-sm">
-              Set your monthly spending limits for each category
-            </DialogDescription>
-          </DialogHeader>
+      <DialogContent
+        className="w-[95vw] max-w-[600px] max-h-[85vh] overflow-hidden select-none"
+        onPointerDownOutside={(e) => e.preventDefault()}
+      >
+        <DialogHeader className="select-none">
+          <DialogTitle className="text-lg sm:text-xl select-none">
+            Monthly Budget Settings
+          </DialogTitle>
+          <DialogDescription className="text-sm select-none">
+            Set your monthly spending limits for each category
+          </DialogDescription>
+        </DialogHeader>
 
-          <ScrollArea className="max-h-[65vh] pr-4 mt-4">
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4"
-              >
-                <div className="grid gap-4">
-                  {EXPENSE_CATEGORIES.map((category) => (
-                    <FormField
-                      key={category.id}
-                      control={form.control}
-                      name={`budgets.${category.id}`}
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="flex items-center gap-2 text-sm select-none">
-                            <span>{category.icon}</span>
-                            <span>{category.name}</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              type="number"
-                              step="0.01"
-                              placeholder="0.00"
-                              className="text-sm"
-                              {...field}
-                              value={field.value || ""}
-                              onChange={(e) =>
-                                field.onChange(
-                                  e.target.value ? Number(e.target.value) : 0
-                                )
-                              }
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  ))}
-                </div>
-
-                <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4 border-t select-none">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => setOpen(false)}
-                    className="w-full sm:w-auto"
-                  >
-                    Cancel
-                  </Button>
-                  <Button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full sm:w-auto"
-                  >
-                    {isLoading && (
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        <ScrollArea className="max-h-[60vh] pr-4">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-4 select-none"
+            >
+              <div className="grid gap-4">
+                {EXPENSE_CATEGORIES.map((category) => (
+                  <FormField
+                    key={category.id}
+                    control={form.control}
+                    name={`budgets.${category.id}`}
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="flex items-center gap-2 text-sm select-none">
+                          <span className="select-none">{category.icon}</span>
+                          <span className="select-none">{category.name}</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            type="number"
+                            step="0.01"
+                            placeholder="0.00"
+                            className="text-sm select-text"
+                            {...field}
+                            value={field.value || ""}
+                            onChange={(e) =>
+                              field.onChange(
+                                e.target.value ? Number(e.target.value) : 0
+                              )
+                            }
+                          />
+                        </FormControl>
+                        <FormMessage className="select-none" />
+                      </FormItem>
                     )}
-                    <Save className="mr-2 h-4 w-4" />
-                    Save Budgets
-                  </Button>
-                </div>
-              </form>
-            </Form>
-          </ScrollArea>
-        </div>
+                  />
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row justify-end gap-2 pt-4 border-t">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setOpen(false)}
+                  className="w-full sm:w-auto select-none"
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full sm:w-auto select-none"
+                >
+                  {isLoading && (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  )}
+                  <Save className="mr-2 h-4 w-4" />
+                  Save Budgets
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </ScrollArea>
       </DialogContent>
     </Dialog>
   );
