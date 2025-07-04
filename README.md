@@ -56,11 +56,10 @@ A simple web application for tracking personal finances built with Next.js, Reac
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 4. Run the development server:
+
    ```bash
    npm run dev
    ```
-
-````
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -77,7 +76,7 @@ description: String,
 createdAt: Date,
 updatedAt: Date
 }
-````
+```
 
 ## API Endpoints
 
