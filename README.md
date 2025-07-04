@@ -51,9 +51,9 @@ A simple web application for tracking personal finances built with Next.js, Reac
    or for MongoDB Atlas:
 
    MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
-   ```
 
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
+   ```
 
 4. Run the development server:
 
