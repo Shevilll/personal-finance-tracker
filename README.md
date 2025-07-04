@@ -30,32 +30,36 @@ A simple web application for tracking personal finances built with Next.js, Reac
 ### Installation
 
 1. Clone the repository:
-   \`\`\`bash
+
+   ```bash
    git clone https://github.com/Shevilll/personal-finance-tracker
    cd personal-finance-tracker
-   \`\`\`
+   ```
 
 2. Install dependencies:
-   \`\`\`bash
+
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 3. Set up environment variables:
-   Create a \`.env.local\` file in the root directory:
-   \`\`\`
+   Create a `.env.local` file in the root directory:
+   ```
    MONGODB_URI=mongodb://localhost:27017
+   ```
 
 # or for MongoDB Atlas:
 
 # MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
 
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-\`\`\`
+
+````
 
 4. Run the development server:
-   \`\`\`bash
+   ```bash
    npm run dev
-   \`\`\`
+````
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -63,7 +67,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 ### Transactions Collection
 
-\`\`\`javascript
+```javascript
 {
 \_id: ObjectId,
 amount: Number, // Negative for expenses, positive for income
@@ -72,19 +76,19 @@ description: String,
 createdAt: Date,
 updatedAt: Date
 }
-\`\`\`
+```
 
 ## API Endpoints
 
-- \`GET /api/transactions\` - Get all transactions
-- \`POST /api/transactions\` - Create new transaction
-- \`PUT /api/transactions\` - Update existing transaction
-- \`DELETE /api/transactions\` - Delete transaction
-- \`GET /api/transactions/monthly\` - Get monthly expense data for chart
+- `GET /api/transactions` - Get all transactions
+- `POST /api/transactions` - Create new transaction
+- `PUT /api/transactions` - Update existing transaction
+- `DELETE /api/transactions` - Delete transaction
+- `GET /api/transactions/monthly` - Get monthly expense data for chart
 
 ## Project Structure
 
-\`\`\`
+```
 ├── app/
 │ ├── api/transactions/ # API routes
 │ ├── layout.tsx # Root layout
@@ -98,7 +102,7 @@ updatedAt: Date
 │ └── delete-transaction-dialog.tsx
 └── lib/
 └── utils.ts # Utility functions
-\`\`\`
+```
 
 ## Features in Detail
 
@@ -143,4 +147,3 @@ For Vercel deployment:
 ## Contributing
 
 This is a submission for a coding challenge. The project is structured to be easily extensible for additional features in later stages.
-\`\`\`
