@@ -44,21 +44,22 @@ A simple web application for tracking personal finances built with Next.js, Reac
 
 3. Set up environment variables:
    Create a `.env.local` file in the root directory:
+
    ```
    MONGODB_URI=mongodb://localhost:27017
+
+   or for MongoDB Atlas:
+
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
    ```
 
-# or for MongoDB Atlas:
-
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
-
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
-
-````
 
 4. Run the development server:
    ```bash
    npm run dev
+   ```
+
 ````
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -76,7 +77,7 @@ description: String,
 createdAt: Date,
 updatedAt: Date
 }
-```
+````
 
 ## API Endpoints
 
